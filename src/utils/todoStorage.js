@@ -16,4 +16,16 @@ export function fetch() {
   return []
 }
 
-export function removeStorage() {}
+export function removeStorage() {
+  localStorage.removeItem(LOCAL_KEY)
+}
+
+export function filter(todos, type) {
+  if(type === 'active') {
+    return todos.filter(todo => !todo.completed)
+  } else if(type === 'completed') {
+    return todos.filter(todo => todo.completed)
+  } else {
+    return todos;
+  }
+}
